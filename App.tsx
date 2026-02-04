@@ -175,6 +175,7 @@ const LoginPage = ({ onLogin, onSignup, onDemoLogin }: any) => {
 
 
 
+
                     <div className="text-center pt-4">
                         <button onClick={() => { setMode(mode === 'login' ? 'signup' : 'login'); setError(''); }} className="text-sm font-semibold text-blue-600 hover:text-blue-700">
                              {mode === 'login' ? "Don't have an account? Sign up" : "Already have an account? Sign in"}
@@ -1006,7 +1007,9 @@ export default function App() {
     return (
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-4 mb-6">
-          <button onClick={() => setCurrentView('books_manage')}><IconArrowLeft className="w-6 h-6 text-slate-500" /></button>
+          <button onClick={() => setCurrentView(currentUser?.role === 'LIBRARIAN' ? 'books' : 'books_manage')}>
+            <IconArrowLeft className="w-6 h-6 text-slate-500" />
+          </button>
           <h2 className="text-2xl font-bold text-slate-800">{editingBook ? 'Edit Book' : 'Add New Book'}</h2>
         </div>
         
